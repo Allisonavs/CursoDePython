@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ExerciciosDePython/.idea/Curso Em Video.iml" filepath="$PROJECT_DIR$/../ExerciciosDePython/.idea/Curso Em Video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Curso Em Vídeo.iml" filepath="$PROJECT_DIR$/.idea/Curso Em Vídeo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CursoEmVideo/.idea/CursoEmVideo.iml" filepath="$PROJECT_DIR$/../CursoEmVideo/.idea/CursoEmVideo.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+print("Vamos analisar algo que você digitar!")
+a = input("Digite qualquer coisa: ")
+print(f"Seu tipo primitivo é {(type(a))}")
+print(f"É um alfanúmerico? {(a.isalnum())}")
+print(f"Possui apenas letras? {(a.isalpha())}")
