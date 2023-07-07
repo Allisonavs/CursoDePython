@@ -8,8 +8,8 @@
 
 #O programa pede as informações corporeas do usuário
 
-peso = float(input('Peso: '))
-alt = float(input('Altura: '))
+peso = float(input('Peso (Kg): '))
+alt = float(input('Altura (m): '))
 
 #O programa calcula o IMC desse usuário
 
@@ -17,7 +17,7 @@ IMC = peso / (alt**2)
 
 #O programa indica ao usuário o IMC e o status
 
-print(f'Você possui o IMC de {IMC:.1f}, na tabela você se encaixa em:')
+print(f'Com o IMC de {IMC:.1f} na tabela se encaixa em:')
 if IMC <= 18.5:
     print('Abaixo do Peso')
 elif 25 >= IMC > 18.5:

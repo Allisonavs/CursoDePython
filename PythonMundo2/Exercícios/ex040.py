@@ -12,7 +12,7 @@ n2 = float(input('Nota 2: '))
 #O programa calcula a média do aluno e mostra para o usuário
 
 m = (n1 + n2) / 2
-print(f'A média do aluno foi de {m}')
+print(f'A média do aluno foi de {m:.1f}')
 
 #O programa indica se o aluno se encontra REPROVADO, em RECUPERAÇÃO ou se ele está APROVADO
 

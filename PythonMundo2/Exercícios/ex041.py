@@ -16,15 +16,19 @@ ano = int(input('Digite o ano de nascimento do atleta: '))
 
 idade = datetime.now().year - ano
 
+#O programa mostra a idade do atleta
+
+print(f'O atleta tem {idade} anos')
+
 #O programa indica em qual categoria o atleta se encontra:
 
 if idade <= 9:
     print('O atleta é da categoria MIRIM')
-elif 14 >= idade > 9:
+elif idade <= 14:
     print('O atleta é da categoria INFANTIL')
-elif 19 >= idade > 14:
+elif idade <= 19:
     print('O atleta é da categoria JUNIOR')
-elif idade == 20:
+elif idade <= 25:
     print('O atleta é da categoria SÊNIOR')
-elif idade > 20:
+else:
     print('O atleta é da categoria MASTER')

@@ -6,7 +6,16 @@
 
 from datetime import datetime
 
-#O programa pede o ano de nascimento do usuário:
+#O programa pergunta se o usuário é do sexo feminino ou masculino
+
+print('Você é do sexo Masculino ou Feminino?')
+sexo = input('[M] - Masculino\n'
+             '[F] - Feminino\n')
+if sexo == 'F' or sexo == 'f':
+    print('Você não possui alistamento obrigatório!')
+    exit()
+
+#O programa pede o ano de nascimento do usuário
 
 ano = int(input('Informe seu ano de nascimento: '))
 
@@ -19,15 +28,19 @@ idade = datetime.now().year - ano
 
 if idade < 18:
     f = 18 - idade
+    s = datetime.now().year + f
     if f == 1:
         print(f'Falta {f} ano para você se alistar')
     else:
         print(f'Faltam {f} anos para você se alistar')
+    print(f'Seu alistamento será em {s}')
 elif idade > 18:
     f = idade - 18
+    s = datetime.now().year - f
     if f == 1:
         print(f'Se passou {f} ano do prazo de alistamento')
     else:
         print(f'Se passaram {f} anos do prazo de alistamento')
+    print(f'Seu alistamento foi em {s}')
 elif idade == 18:
-    print('Você está dentro do prazo de alistamento')
+    print('Você precisa se alistar IMEDIATAMENTE')
