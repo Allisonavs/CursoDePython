@@ -13,11 +13,20 @@ e = input()
 
 #O jogo fica em suspense até mostrar o resultado
 
+print('JO')
 sleep(1)
+print('KEN')
+sleep(1)
+print('PO!!!')
+sleep(0.5)
 
 #O computador aleatoriza a sua escolha
 
 ep = (randint(1,3))
+
+#Telinha inicial de resultado do jogo
+
+print('-='*17)
 
 #O computador indica quem ganhou
 
@@ -53,3 +62,8 @@ elif e == '3':
     elif ep == 3:
         print('(PLAYER) Tesoura x Tesoura (CPU)')
         print('EMPATE')
+else:
+    print('Você não escolheu uma opção válida! Jogo Encerrado')
+#Tela final do resultado do jogo
+
+print('-='*17)
