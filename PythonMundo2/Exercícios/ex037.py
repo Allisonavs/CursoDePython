@@ -18,7 +18,7 @@ sleep(1.5)
 
 # O programa lê um número que o usuário digita
 
-numD = input('Digite um número: ')
+numD = input('Digite um número inteiro: ')
 
 # O programa analisa se o número digitado realmente é um número inteiro
 
@@ -31,15 +31,17 @@ numD = int(numD)
 
 # Agora o programa lhe da opções de bases de conversão para o usuário e pede para ele escolher
 print('Digite: \n'
-      ' 1 - para binário\n'
-      ' 2 - para octal\n'
-      ' 3 - para hexadecimal')
+      ' [1] - para binário\n'
+      ' [2] - para octal\n'
+      ' [3] - para hexadecimal')
 e = input()
 
 # O programa lê qual opção foi escolhida e fornece o número convertido (sem o prefixo de identificação)
 if e == '1':
-    print(f"{numD} em Binário: {bin(numD).replace('0b', '')}")
+    print(f"{numD} em Binário: {numD:b}")
 elif e == '2':
-    print(f"{numD} em Octal: {oct(numD).replace('0o', '')}")
+    print(f"{numD} em Octal: {numD:o}")
 elif e == '3':
-    print(f"{numD} em Hexadecimal: {hex(numD).replace('0x', '')}")
+    print(f"{numD} em Hexadecimal: {numD:x}")
+else:
+    print(f'{e} não é uma opção válida, tente novamente!')

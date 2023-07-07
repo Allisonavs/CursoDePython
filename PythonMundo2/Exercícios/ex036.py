@@ -9,8 +9,7 @@ s = float(input('Salário: R$'))
 a = int(input('Em quantos anos deseja pagar? '))
 
 # Calculando a prestação mensal
-apm = a*12
-pm = vc / apm
+pm = vc / (a*12)
 
 # Calculando se o valor das parcelas excedem 30% do salário
 tps = s * 0.30
