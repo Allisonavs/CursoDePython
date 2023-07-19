@@ -5,9 +5,13 @@
 
 n1 = int(input('Escreva um número para ver a sua tábuada: '))
 
+#Tela inicial do programa
+
+print(f'Está é a tabuada do {n1}:')
+
 #O laço é criado, de 1 a 10, fazendo os calculos para exibir a tabuada de n1
 for c in range(1, 11):
-    print(f'{n1} x {c} = {n1*c}')
+    print(f'{n1} x {c:2} = {n1*c}')
 
 
 #DESAFIO 009:

@@ -1,9 +1,16 @@
 # Desenvolva um programa que leia seis números inteiros e mostre a soma apenas
 # daqueles que forem pares. Se o valor digitado for impar, desconsidere-o
 
+#Crio a variavel de soma, contagem, e contagem total
 s = 0
-for c in range(0, 6):
-    n = int(input('Digite um número: '))
+cont = 0
+conttotal = 0
+
+#O laço é criado
+for c in range(1, 7):
+    n = int(input(f'Digite o {c} valor: '))
+    conttotal += 1
     if n % 2 == 0:
-        s = s + n
-print(f'Somando apenas os números pares digitados, \no resultado é igual a {s}')
+        s += n
+        cont += 1
+print(f'Somando apenas os {cont} números pares dos {conttotal} digitados, \no resultado é igual a {s}')

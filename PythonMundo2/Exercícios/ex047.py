@@ -9,4 +9,4 @@
 #Crio o laço de repetição, porém, verificando se o número realmente é par
 for c in range(1, 51):
     if c % 2 == 0:  # Verifica se o número é par
-        print(c)
+        print(c, end=' ')
