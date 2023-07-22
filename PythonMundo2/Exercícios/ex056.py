@@ -16,8 +16,8 @@ for p in range (1,5):
     idade = int(input('Idade: '))
     sexo = str(input('Sexo [M/F]: ')).strip()
     somaidade += idade                                # É somada todas as idades
-    if p == 1 and sexo in 'Mm':                       # Se for o primeiro laço e for do sexo masculino, esse será o mais velho
-        maioridadehomem = idade
+    if p == 1 and sexo in 'Mm':                       # Se for o primeiro laço e for do sexo masculino,
+        maioridadehomem = idade                       # esse será o mais velho
         nomevelho = nome
     if sexo in 'Mm' and idade > maioridadehomem:      # Se não, serão substituidos os que já estão inseridos
         maioridadehomem = idade
@@ -29,6 +29,7 @@ for p in range (1,5):
 mediaidade = somaidade / 4
 
 #O programa mostra ao usuário a analise dos dados
+
 print(f'A idade média é de {mediaidade} anos')
 print(f'O homem mais velho tem {maioridadehomem} e se chama {nomevelho}')
 print(f'Ao todo são {totmulher20} mulheres com menos de 20 anos')
