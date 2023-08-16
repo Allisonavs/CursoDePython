@@ -11,6 +11,8 @@ for c in range(pt, pt+11, r):
 
 pt = int(input('Primeiro termo: '))
 r = int(input('Razão: '))
+
+#Usando for:
 for c in range(10):
     termo = pt + c * r
     print(termo, end=' -> ')
