@@ -1,17 +1,24 @@
-# Melhore o DESAFIO 061, pergutnando para o usuário se ele quer mostrar mais alguns termos.
-# O programa encerra quando ele disser que quer mostrar 0 termos
+# Melhore o DESAFIO 061, perguntando para o usuário se ele quer mostrar mais alguns termos.
+# O programa encerra quando ele disser que quer mostrar 0 termos.
 
-pt = 1
-while pt != 0:
-    pt = int(input('Primeiro termo: '))  # Solicita o primeiro termo da sequência ao usuário
-    r = int(input('Razão: '))  # Solicita a razão da sequência ao usuário
+#O programa pede o primeiro termo e a razão
+pt = int(input('Primeiro termo: '))
+r = int(input('Razão: '))
 
-    c = 0  # Inicializa o contador de termos
-    while c < 10:  # Enquanto o contador for menor que 10 (gera 10 termos)
-        termo = pt + c * r  # Calcula o termo atual da sequência
-        print(termo, end=' -> ')  # Imprime o termo atual seguido por ' -> '
-        c += 1  # Incrementa o contador em 1 para passar para o próximo termo
-    print('Fim')  # Imprime 'Fim' quando o loop terminar
+#É criada as variaveis
+termo = pt
+c = 0
+total = 0
+mais = 10
 
-    print('\nQuer mostrar mais termos? Caso NÃO, digite 0 em termo e razão\n')
-
+#O laço é criado
+while mais != 0:
+    total += mais     # Soma o total de termos exibidos
+    while c < total:  # Enquanto o contador for menor que total (gera {total} termos)
+        print(termo, end=' -> ')
+        termo += r  # Calcula o termo atual da sequência
+        c += 1
+    print('PAUSA')
+    mais = int(input('Quantos termos você quer mostrar a mais? '))
+print(f'Progressão finalizada com {total} termos mostrados.')
+print('FIM')

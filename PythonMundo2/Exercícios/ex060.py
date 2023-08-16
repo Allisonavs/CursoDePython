@@ -1,19 +1,29 @@
 # Faça um programa que leia um número qualquer e mostre o seu fatorial.
 # Ex: 5! = 5x4x3x2x1=120
 
-#Pede para que o usuário digite um número para ver o fatorial dele
-n = int(input('Digite um número: '))
-fatorial = 1    # É criada a variavel do fatorial
+from time import sleep
 
-#Atribui o valor n para i, para poder usar no while e ainda indiciar ela ao final do programa
+# Pede para que o usuário digite um número para ver o fatorial dele
+n = int(input('Digite um número: '))
+
+# É criada a variável do fatorial
+fatorial = 1
+
+# Atribui o valor n para i, para poder usar no while e ainda indicá-la ao final do programa
 i = n
 
-#O laço é criado
+#Mostra uma mensagem na tela
+print(f'Calculando {n}!', end=' = ')
+sleep(1)
+
+# O laço é criado
 while i >= 1:
-    fatorial *= i   # Multiplica a variável fatorial pelo valor atual de i
-    i -= 1   # Decrementa o valor de i em 1 a cada iteração
+    if i == 1:
+        print(f'{i}', end=' = ')  # Coloca "=" no final da última iteração
+    else:
+        print(f'{i}', end=' x ')  # Coloca "x" no final da iteração
+    fatorial *= i  # Multiplica a variável fatorial pelo valor atual de i
+    i -= 1         # Decrementa o valor de i em 1 a cada iteração
 
-#Após o loop, a variável 'fatorial' conterá o fatorial do número digitado
-
-#Mostra o resultado
-print(f'O fatorial de {n}! é {fatorial}')
+# Mostra o resultado
+print(f'{fatorial}')

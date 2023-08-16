@@ -28,17 +28,22 @@ while player != pc:
     print('Processando...')
     sleep(0.5)
 
-    print(f'Você errou, eu pensei em {pc}')
+    print(f'Você errou')
+    if player > pc:
+        print('Menos')
+    elif player < pc:
+        print('Mais')
     player = int(input('Tente novamente: '))
 
-    pc = randint(0, 10)
-
     palpite += 1
+
 
 # Indica se ganhou o jogo e quantos palpites ele precisou
 if player == pc:
     print('Processando...')
     sleep(0.5)
+
+    palpite += 1
 
     print('PARABÉNS, VOCÊ GANHOU!')
     print(f'Você precisou de {palpite} tentativas')
