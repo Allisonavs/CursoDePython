@@ -10,6 +10,8 @@ print('-'*28)
 # Pergunta quantos termos deseja
 n = int(input('Quantos termos você quer mostrar? '))
 
+# Linha superior
+print('~'*50)
 # Crio as variáveis, pois para ter a sequência os termos iniciais sempre são 0 e 1
 t1 = 0
 t2 = 1
@@ -26,4 +28,4 @@ while cont <= n:
     t2 = t3                     # Atualiza o segundo termo para o valor do próximo termo
     cont += 1                   # Incrementa o contador de termos
 print(' -> Fim')                # Imprime "Fim" quando o loop terminar
-
+print('~'*50)

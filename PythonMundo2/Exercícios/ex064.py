@@ -9,7 +9,7 @@ cont = 0
 
 #É criado o laço de repetição
 while flag != 'end':
-    n = int(input('Digite um número: '))
+    n = int(input('Digite um número [999 para parar]: '))
     if n != 999:        # Se for diferente de 999, o programa somará o número no total e adiciona 1 no contador
         total += n
         cont += 1
