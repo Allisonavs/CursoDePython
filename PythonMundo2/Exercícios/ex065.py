@@ -5,16 +5,15 @@
 # Defino as variáveis que vou usar
 total = 0  # Variável para armazenar a soma dos números digitados
 cont = 0   # Variável para contar a quantidade de números digitados
-cond = ''  # Variável para armazenar a condição de continuação do loop (S ou N)
 menor = 0  # Variável para armazenar o menor número digitado
 maior = 0  # Variável para armazenar o maior número digitado
+cond = ''  # Variável para armazenar a condição de continuação do loop (S ou N)
 
 # Crio o laço de repetição
 while cond.lower() != 'n':
     n = int(input('\nDigite um número: '))
     total += n
     cont += 1
-    media = total / cont
 
     if cont == 1:  # Se for o primeiro número digitado
         menor = n   # Define o primeiro número como o menor e o maior até o momento
@@ -26,6 +25,8 @@ while cond.lower() != 'n':
             menor = n  # Atualiza o menor número
 
     cond = str(input('Deseja continuar? [S/N]: '))
+
+media = total / cont
 
 # Exibe os resultados ao final do loop
 print(f'\nA média é {media:.2f}')
