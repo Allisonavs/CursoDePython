@@ -4,14 +4,16 @@
 # B) Quantos homem foram cadastrados.
 # C) Quantas mulheres tem menos de 20 anos
 
+
 # Inicializando as variáveis para contar quantidades
-m18 = 0  # Contador de pessoas com mais de 18 anos
-h = 0  # Contador de homens cadastrados
-mm20 = 0  # Contador de mulheres com menos de 20 anos
+pessoas_acima_dezoito = 0   # Contador de pessoas com mais de 18 anos
+homens_cadastrados = 0      # Contador de homens cadastrados
+mulheres_abaixo_vinte = 0   # Contador de mulheres com menos de 20 anos
 
 # Iniciando um loop de repetição infinito
 while True:
-    #Tela inicial
+
+    # Tela inicial
     print('-' * 30)
     print(f'{"CADASTRE UMA PESSOA":^30}')
     print('-' * 30)
@@ -20,28 +22,29 @@ while True:
     idade = int(input('Idade: '))
     sexo = str(input('Sexo [M/F]: ')).upper().strip()[0]
 
-    #Verifica se é uma resposta válida:
+    # Verifica se é uma resposta válida:
     while sexo not in 'MF':
         print('Opção inválida, tente novamente')
         sexo = str(input('Sexo [M/F]: ')).strip().upper()[0]
 
     # Verificando se a idade é maior que 18 e incrementando o contador
     if idade > 18:
-        m18 += 1
+        pessoas_acima_dezoito += 1
 
     # Verificando se o sexo é masculino e incrementando o contador
     if sexo == 'M':
-        h += 1
+        homens_cadastrados += 1
 
     # Verificando se o sexo é feminino e a idade é menor que 20, incrementando o contador
     if sexo == 'F' and idade < 20:
-        mm20 += 1
+        mulheres_abaixo_vinte += 1
 
     # Perguntando se o usuário deseja continuar ou encerrar o programa
     escolha = str(input('Deseja continuar? [S/N] ')).upper().strip()[0]
 
     # Verifica se é uma resposta válida:
     while escolha not in 'SN':
+        print('Opção Inválida, tente novamente')
         escolha = str(input('Deseja continuar? [S/N] ')).upper().strip()[0]
 
     # Encerrando o loop se a escolha for 'N'
@@ -49,6 +52,6 @@ while True:
         break
 
 # Exibindo os resultados das contagens ao final do programa
-print(f'{m18} pessoas têm mais de 18 anos')
-print(f'{h} homens foram cadastrados')
-print(f'{mm20} mulheres têm menos de 20 anos')
+print(f'{pessoas_acima_dezoito} pessoas têm mais de 18 anos')
+print(f'{homens_cadastrados} homens foram cadastrados')
+print(f'{mulheres_abaixo_vinte} mulheres têm menos de 20 anos')

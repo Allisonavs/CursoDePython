@@ -1,6 +1,7 @@
 # Crie um programa que jogue par ou ímpar com o computador. O jogo só será interrompido quando o jogador PERDER,
 # mostrando o total de vitórias consecutivas que ele conquistou no final do jogo.
 
+
 # Importando a função randint da biblioteca random
 from random import randint
 
@@ -14,8 +15,8 @@ print('-='*30)
 
 # Iniciando um loop de repetição infinito
 while True:
-    # Gerando um número aleatório para o computador entre 1 e 5
-    computador = randint(1, 5)
+    # Gerando um número aleatório para o computador entre 0 e 10
+    computador = randint(0, 10)
 
     # Solicitando ao jogador que escolha um número
     jogador = int(input('Jogue seu número: '))
@@ -25,10 +26,12 @@ while True:
 
     # Solicitando ao jogador que escolha entre Par (P) ou Ímpar (I)
     escolha = input('Par ou Ímpar? [P/I] ').upper().strip()[0]
+    while escolha not in 'PI':
+        escolha = input('Par ou Ímpar? [P/I] ').upper().strip()[0]
 
     # Exibindo os números jogados e o resultado da soma
     print('-'*60)
-    print(f'Você jogou {jogador} e o computador {computador}. Total de {resultado} ', end='')
+    print(f'Você jogou {jogador} e o computador {computador}. Total de {resultado}. ', end='')
 
     # Verificando se a soma é par
     if resultado % 2 == 0:
@@ -43,7 +46,7 @@ while True:
             break  # Encerrando o loop se o jogador escolher ímpar
 
     # Caso a soma seja ímpar
-    if resultado % 2 != 0:
+    elif resultado % 2 != 0:
         print('DEU ÍMPAR')
         print('-'*60)
         # Verificando a escolha do jogador e determinando o resultado
@@ -63,7 +66,3 @@ print(f'Vitórias consecutivas: {vc}')
 
 # Mensagem de fim de jogo
 print('Fim de jogo')
-
-
-
-
