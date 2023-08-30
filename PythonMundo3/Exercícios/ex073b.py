@@ -19,7 +19,7 @@ print("="*50)
 opcao = 0
 
 while opcao != 8:
-    sleep(3)
+    sleep(2)
     opcao = int(input('''[1] O Campeão do campeonato
 [2] Classificados para fase de grupos da Libertadores 
 [3] Classificados para Pré - Libertadores 
