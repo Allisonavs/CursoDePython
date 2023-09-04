@@ -1,0 +1,4 @@
+#Crie um programa onde o usuário possa digitar cinco valores númericos e cadastre-os em um alista,
+#já na posição correta de inserção (sem usar o sort())
+#No final, mostre a lista ordenada na tela
+
