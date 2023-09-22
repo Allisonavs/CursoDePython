@@ -1,3 +1,5 @@
+# PROGRAMA COM DECLARAÇÕES DEMAIS NO INICIO
+
 # Inicializando listas vazias para armazenar informações das pessoas.
 pessoas = list()         # Lista para todas as pessoas cadastradas.
 dado = list()            # Lista temporária para armazenar dados de uma pessoa.
