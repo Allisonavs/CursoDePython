@@ -1,18 +1,24 @@
 # Faça um programa que leia nome e média de um aluno, guardando também a situação em um dicionário.
 # No final, mostre o conteúdo da estrutura na tela
 
-dados = {'Nome': '', 'Media': 0, 'Situação': ''}
+# Criando um dicionário para armazenar informações do aluno
+aluno = dict()
 
-dados['Nome'] = str(input('Nome: '))
-dados['Media'] = float(input(f'Média de {dados["Nome"]}: '))
+# Solicitando e armazenando o nome do aluno
+aluno['nome'] = str(input("Aluno: ")).title()
 
-if dados['Media'] >= 7.0:
-    dados['Situação'] = 'Aprovado'
-elif 7.0 > dados['Media'] >= 5.0:
-    dados['Situação'] = 'Recuperação'
-elif dados['Media'] < 5.0:
-    dados['Situação'] = 'Reprovado'
+# Solicitando e armazenando a média do aluno
+aluno['média'] = float(input(f'Média de {aluno["nome"]}: '))
 
-print(f'Nome é igual a {dados["Nome"]}')
-print(f'Média é igual a {dados["Media"]}')
-print(f'Situação é igual a {dados["Situação"]}')
+# Determinando a situação do aluno com base na média
+if aluno['média'] >= 7.0:
+    aluno['situação'] = 'Aprovado'
+elif aluno['média'] >= 5.0:
+    aluno['situação'] = 'Recuperação'
+elif aluno['média'] < 5.0:
+    aluno['situação'] = 'Reprovado'
+
+# Exibindo as informações do aluno
+for k, v in aluno.items():
+    print(f'- {k.title()} é igual a {v}')
+

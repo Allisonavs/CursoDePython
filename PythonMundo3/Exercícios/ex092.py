@@ -45,4 +45,4 @@ print()
 
 # Iterando sobre os itens do dicionário e imprimindo as informações
 for chave, valor in dados.items():
-    print(f'{chave} tem o valor {valor}')
+    print(f'{chave.title()} tem o valor {valor}')
