@@ -1,66 +1,75 @@
-# Crie um programa que leia nome, sexo e idade de várias pessoas, gurdando os dados de cada pessoa em um dicionário
+# Crie um programa que leia nome, sexo e idade de várias pessoas, guardando os dados de cada pessoa em um dicionário
 # e todos os dicionários em uma lista. No final, mostre:
 # A) Quantas pessoas foram cadastradas
 # B) A média de idade do grupo.
 # C) Uma lista com todas as mulheres
-# D) Uma lista com tododas as pessoas com idade acima da média
+# D) Uma lista com todas as pessoas com idade acima da média
 
-# Cria um dicionário vazio para armazenar os dados de cada pessoa
-dados = dict()
-
-# Cria uma lista vazia para armazenar todos os dicionários de dados de pessoas
-dados_total = list()
-
-# Inicializa variáveis para calcular a idade média
-idade_total = idade_media = 0
-
-# Cria uma lista vazia para armazenar os nomes das mulheres
+pessoas = list()
+pessoa = dict()
 mulheres = list()
+acima_media = list()
 
-# Loop infinito para continuar a coletar dados até que o usuário decida parar
 while True:
-    # Solicita e armazena o nome da pessoa
-    dados['nome'] = input('Nome: ')
+    # Solicita o nome da pessoa
+    pessoa['nome'] = str(input('Nome: ')).capitalize()
+    
+    # Solicita o sexo da pessoa, garantindo que seja 'M' ou 'F'
+    while True:
+        pessoa['sexo'] = str(input('Sexo [M/F]: ')).strip().upper()[0]
+        if pessoa['sexo'] in 'MF':
+            break
+        print('Opção inválida. Tente novamente.')
 
-    # Solicita e armazena o sexo da pessoa, converte para maiúsculo e pega o primeiro caractere
-    dados['sexo'] = input('Sexo [M/F]: ').upper().strip()[0]
+    # Solicita a idade da pessoa, garantindo que seja um número válido
+    while True:
+        try:
+            pessoa['idade'] = int(input('Idade: '))
+            if pessoa['idade'] <= 0:
+                print('Idade inválida. Tente novamente.')
+            else:
+                break
+        except ValueError:
+            print('Idade inválida. Tente novamente.')
 
-    # Solicita e armazena a idade da pessoa
-    dados['idade'] = int(input('Idade: '))
+    # Adiciona o dicionário da pessoa à lista de pessoas
+    pessoas.append(pessoa.copy())
+    pessoa.clear()
 
-    # Adiciona a idade da pessoa à idade total para calcular a média posteriormente
-    idade_total += dados['idade']
-
-    # Verifica se a pessoa é do sexo feminino e adiciona o nome à lista de mulheres
-    if dados['sexo'] == 'F':
-        mulheres.append(dados['nome'])
-
-    # Adiciona uma cópia do dicionário de dados da pessoa à lista de dados total
-    dados_total.append(dados.copy())
-
-    # Limpa o dicionário de dados para a próxima iteração
-    dados.clear()
-
-    # Pergunta ao usuário se deseja continuar e encerra o loop se a resposta for 'N'
-    escolha = input('Deseja continuar? [S/N] ').upper().strip()[0]
-    if escolha in 'N':
+    # Pergunta se deseja continuar cadastrando pessoas
+    if input('Quer continuar? [S/N] ').upper().strip()[0] == 'N':
         break
 
-# Imprime todos os dados coletados
-print(dados_total)
+# Calcula a quantidade de cadastros e a média de idade
+cadastros = len(pessoas)
+media_idade = sum([pessoa['idade'] for pessoa in pessoas]) / cadastros
 
-# Calcula a média de idade do grupo
-idade_media = idade_total / len(dados_total)
+# Cria listas de mulheres e pessoas com idade acima da média
+for pessoa in pessoas:
+    if pessoa['sexo'] == 'F':
+        mulheres.append(pessoa['nome'])
+    if pessoa['idade'] > media_idade:
+        acima_media.append(pessoa['nome'])
 
-# Imprime o número total de pessoas e a média de idade do grupo
-print(f'- O grupo tem {len(dados_total)} pessoas.')
-print(f'- A média de idade é {idade_media:.2f} anos.')
+# Exibe a quantidade de cadastros
+print(f'{cadastros} cadastros registrados', end='\n\n')
 
-# Imprime os nomes das mulheres cadastradas
-print('- As mulheres cadastradas foram:', end=' ')
+# Exibe a média de idade dos cadastrados
+print(f'A média de idade dos cadastrados é de: {media_idade:.0f}')
+
+# Exibe a lista de mulheres cadastradas
+print('Mulheres cadastradas:')
 for mulher in mulheres:
-    print(mulher, end=' ')
+    print(mulher)
 
-# Imprime uma mensagem indicando que a lista das pessoas acima da média será exibida em seguida
-print('- Lista das pessoas que estão acima da média: ')
+print()
 
+# Exibe a lista de pessoas com idade acima da média
+print('Pessoas com idade acima da média:')
+for pessoa in acima_media:
+    print(pessoa)
+
+print()
+
+# Exibe a lista completa de pessoas cadastradas
+print(pessoas)

@@ -2,32 +2,37 @@
 # dicionário se por acaso a CTPS for diferente de zero, o dicionário receberá também o ano de contração e o salário.
 # Calcule e acrescente, alem da idade, com quantos anos a pessoa vai se aposentar (35 anos de contribuição)
 
-from datetime import date
+from datetime import datetime
 
-dados = dict()
+cadastro = dict()
 
-dados['nome'] = input('Nome: ')
+# Solicita o nome do usuário
+cadastro['nome'] = str(input('Nome: '))
 
-ano_de_nascimento = int(input('Ano de Nascimento: '))
+# Solicita o ano de nascimento do usuário
+cadastro['ano_nascimento'] = int(input('Ano de nascimento: '))
 
-dados['CTPS'] = int(input('Carteira de Trabalho (0 não tem): '))
+# Solicita o número da carteira de trabalho do usuário
+cadastro['carteira_trabalho'] = int(input('Carteira de trabalho (0 não tem): '))
 
-dados['idade'] = date.today().year - ano_de_nascimento
+# Calcula a idade do usuário com base no ano atual
+ano_atual = datetime.now().year
+cadastro['idade'] = ano_atual - cadastro['ano_nascimento']
 
-if dados['CTPS'] != 0:
-    dados['contratação'] = int(input('Ano de Contratação: '))
+# Se a carteira de trabalho for diferente de zero, solicita mais informações
+if cadastro['carteira_trabalho'] != 0:
+    # Solicita o ano de contratação do usuário
+    cadastro['ano_contrataçao'] = int(input('Ano de contratação: '))
+    
+    # Solicita o salário do usuário
+    cadastro['salario'] = float(input('Salário: R$'))
+    
+    # Calcula o ano de aposentadoria com base no ano de contratação e 35 anos de contribuição
+    cadastro['aposentadoria'] = cadastro['ano_contrataçao'] + 35 - cadastro['ano_nascimento']
 
-    salario = float(input('Salário: R$'))
+# Exibe o dicionário com os dados cadastrados
+print(cadastro)
 
-    dados['salário'] = f'R${salario:.2f}'
-
-    dados['aposentadoria'] = dados['idade'] + 35
-
-print()
-
-print(dados)
-
-print()
-
-for chave, valor in dados.items():
-    print(f'{chave.title()} tem o valor {valor}')
+# Exibe os dados cadastrados de forma mais organizada
+for k, v in cadastro.items():
+    print(f'{k.capitalize()} tem o valor {v}')

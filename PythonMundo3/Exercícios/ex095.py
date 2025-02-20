@@ -1,41 +1,60 @@
 # Aprimore o desafio 93 para que ele funcione com vários jogadores, incluindo um sistema de visualização
 # de detalhes do aproveitamento de cada jogador
 
-# Inicialização do dicionário e da lista a serem usados
-aproveitamento = dict()
-gols = list()
+dados = dict()
+jogadores = list()
 
-# Solicita ao usuário o nome do jogador e a quantidade de partidas jogadas
-aproveitamento['nome'] = input('Nome do Jogador: ')
-partidas = int(input(f'Quantas partidas {aproveitamento["nome"]} jogou? '))
+while True:
 
-# Pergunta quantos gols o jogador fez em cada partida e armazena na lista 'gols'
-for partida in range(partidas):
-    gols.append(int(input(f'Quantos gols na partida {partida+1}? ')))
+    gols = list()
 
-# Adiciona a lista 'gols' no dicionário 'aproveitamento', usando a chave 'gols'
-aproveitamento['gols'] = gols
+    # Solicita o nome do jogador
+    dados['nome'] = str(input('Nome do jogador: '))
 
-# Calcula o total de gols e adiciona ao dicionário 'aproveitamento'
-aproveitamento['total'] = sum(gols)
+    # Solicita a quantidade de partidas jogadas pelo jogador
+    dados['partidas'] = int(input(f'Quantas partidas {dados["nome"]} jogou? '))
 
-# Mostra o conteúdo do dicionário
-print('-='*30)
-print(aproveitamento)
-print('-='*30)
+    # Solicita a quantidade de gols feitos em cada partida
+    for partida in range(dados['partidas']):
+        gols.append(int(input(f'Quantos gols na partida {partida + 1}? ')))
 
-# Com um laço, mostra o valor de cada item do dicionário
-for chave, valor in aproveitamento.items():
-    print(f'O campo {chave} tem o valor {valor}.')
+    # Calcula o total de gols feitos durante o campeonato
+    total_gols = sum(gols)
 
-print('-='*30)
+    # Adiciona a lista de gols e o total de gols ao dicionário
+    dados['gols'] = gols
+    dados['total_gols'] = total_gols
 
-# Mostra o número de partidas jogadas pelo jogador
-print(f'O jogador {aproveitamento["nome"]} jogou {partidas} partidas.')
+    # Adiciona os dados do jogador à lista de jogadores
+    jogadores.append(dados.copy())
+    dados.clear()
 
-# Mostra quantos gols ele fez em cada partida
-for partida in range(partidas):
-    print(f'     => Na partida {partida+1}, fez {aproveitamento["gols"][partida]} gols.')
+    # Pergunta se deseja continuar cadastrando jogadores
+    if input('Quer continuar? [S/N] ').upper().strip()[0] == 'N':
+        break
 
-# Mostra o total de gols no campeonato
-print(f'Foi um total de {aproveitamento["total"]} gols.')
+print()
+
+# Exibe os dados de todos os jogadores cadastrados com formatação melhorada
+print(f'{"Cod":<6} {"Nome":<20} {"Gols":<20} {"Total de Gols":<15}')
+print('-' * 61)
+for cod, jogador in enumerate(jogadores):
+    print(f'{cod:<6} {jogador["nome"]:<20} {str(jogador["gols"]):<20} {jogador["total_gols"]:<15}')
+print('-' * 61)
+
+print()
+
+while True:
+    # Solicita o código do jogador para mostrar os detalhes
+    jogador = int(input('Mostrar dados de qual jogador? (999 para sair) '))
+    if jogador == 999:
+        break
+    if jogador >= len(jogadores):
+        print('Jogador não cadastrado')
+    else:
+        # Exibe os detalhes do aproveitamento do jogador selecionado
+        print(f' -- LEVANTAMENTO DO JOGADOR {jogadores[jogador]["nome"]}:')
+        for i, gol in enumerate(jogadores[jogador]['gols']):
+            print(f'    No jogo {i+1} fez {gol} gols')
+    print()
+
