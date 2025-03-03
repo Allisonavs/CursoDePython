@@ -15,7 +15,7 @@ for partida in range(partidas):
     gols.append(int(input(f'Quantos gols na partida {partida+1}? ')))
 
 # Adiciona a lista 'gols' no dicionário 'aproveitamento', usando a chave 'gols'
-aproveitamento['gols'] = gols
+aproveitamento['gols'] = gols[:]
 
 # Calcula o total de gols e adiciona ao dicionário 'aproveitamento'
 aproveitamento['total'] = sum(gols)

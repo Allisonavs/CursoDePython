@@ -14,7 +14,7 @@ dados['nome'] = input('Nome: ')
 ano_de_nascimento = int(input('Ano de Nascimento: '))
 
 # Calcula a idade do usuário com base no ano de nascimento e o ano atual
-dados['idade'] = 2018 - ano_de_nascimento
+dados['idade'] = date.today().year - ano_de_nascimento
 
 # Solicita e armazena o status da Carteira de Trabalho (CTPS) do usuário
 dados['CTPS'] = int(input('Carteira de Trabalho (0 não tem): '))

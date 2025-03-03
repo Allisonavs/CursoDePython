@@ -4,7 +4,6 @@
 # Importando funções necessárias
 from random import randint  # Para gerar números aleatórios
 from time import sleep  # Para introduzir atrasos na execução
-from operator import itemgetter  # Para classificar o dicionário por valores
 
 # Criando um dicionário para representar os jogadores e os resultados dos dados
 jogo = {
@@ -23,10 +22,12 @@ for k, v in jogo.items():
     print(f'{k.title()} tirou {v} no dado.')
     sleep(1)  # Atraso de 1 segundo para melhorar a visualização
 
-# Classificando o dicionário de acordo com os valores dos dados em ordem decrescente
-ranking = sorted(jogo.items(), key=itemgetter(1), reverse=True)
+# Classificando o dicionário de acordo com os valores dos dados em ordem decrescente usando lambda
+ranking = sorted(jogo.items(), key=lambda item: item[1], reverse=True)
 
 # Exibindo o ranking dos jogadores
 print('-=' * 30)
 for i, v in enumerate(ranking):
     print(f'{i+1}º lugar: {v[0].title()} com {v[1]}.')
+    sleep(1)  # Atraso de 1 segundo para melhorar a visualização
+print('-=' * 30)

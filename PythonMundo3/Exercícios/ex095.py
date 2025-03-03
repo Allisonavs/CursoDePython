@@ -52,8 +52,12 @@ while True:
     if jogador >= len(jogadores):
         print('Jogador não cadastrado')
     else:
+        print()
+        
         # Exibe os detalhes do aproveitamento do jogador selecionado
-        print(f' -- LEVANTAMENTO DO JOGADOR {jogadores[jogador]["nome"]}:')
+        print(f' -- LEVANTAMENTO DO JOGADOR {jogadores[jogador]["nome"]}:', end='\n\n')
+        
+        # Exibe os gols feitos em cada partida
         for i, gol in enumerate(jogadores[jogador]['gols']):
             print(f'    No jogo {i+1} fez {gol} gols')
     print()

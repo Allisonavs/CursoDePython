@@ -20,5 +20,5 @@ elif aluno['média'] < 5.0:
 
 # Exibindo as informações do aluno
 for k, v in aluno.items():
-    print(f'- {k.title()} é igual a {v}')
+    print(f'  - {k.title()} é igual a {v}')
 
